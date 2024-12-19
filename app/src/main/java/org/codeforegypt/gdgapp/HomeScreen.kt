@@ -225,15 +225,7 @@ fun SearchHeader() {
         }
     }
 
-@Composable
-fun ViewPager(modifier: Modifier = Modifier) {
-    val scaffold = rememberScaffoldState()
-    val scope = rememberCoroutineScope()
-    val context = LocalContext.current
-    val pagerState= rememberPagerState(
 
-    )
-}
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
