@@ -7,11 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
+import org.codeforegypt.gdgapp.features.home.HomeScreen
 import org.codeforegypt.gdgapp.ui.theme.GDGAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,29 +20,25 @@ class MainActivity : ComponentActivity() {
         setContent {
             window.statusBarColor = ContextCompat.getColor(this, R.color.white)
             GDGAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                MainContent()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
+fun MainContent() {
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        content = { paddingValues ->
+            HomeScreen(
+                modifier = Modifier.padding(paddingValues),
+                featuredEvents = listOf(
+                    R.drawable.img_devfest,
+                    R.drawable.img_devfest,
+                    R.drawable.img_devfest
+                )
+            )
+        }
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    GDGAppTheme {
-        Greeting("Android")
-    }
 }
