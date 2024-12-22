@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import org.codeforegypt.gdgapp.R
 
 @Composable
- fun TopBar() {
+fun TopBar() {
     Row(
         modifier = Modifier
             .fillMaxWidth(),

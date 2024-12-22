@@ -23,18 +23,83 @@ fun HomeScreen(
         item {
             EventListSection(
                 title = "Upcoming Events",
-                events = listOf("Event 1", "Event 2", "Event 3"),
+                events = listOf(
+                    Events(
+                        image = R.drawable.ai_image,
+                        title = "Gemma 2 Ai Challenge",
+                        locationIcon = R.drawable.location,
+                        location = "Location",
+                        dateIcon = R.drawable.calender,
+                        date = "28 Nov 2024 - 1 Dec 2024"
+                    ),
+                    Events(
+                        image = R.drawable.ai_image,
+                        title = "Gemma 2 Ai Challenge",
+                        locationIcon = R.drawable.location,
+                        location = "Location",
+                        dateIcon = R.drawable.calender,
+                        date = "28 Nov 2024 - 1 Dec 2024"
+                    ),
+                    Events(
+                        image = R.drawable.ai_image,
+                        title = "Gemma 2 Ai Challenge",
+                        locationIcon = R.drawable.location,
+                        location = "Location",
+                        dateIcon = R.drawable.calender,
+                        date = "28 Nov 2024 - 1 Dec 2024"
+                    ),
+                    Events(
+                        image = R.drawable.ai_image,
+                        title = "Gemma 2 Ai Challenge",
+                        locationIcon = R.drawable.location,
+                        location = "Location",
+                        dateIcon = R.drawable.calender,
+                        date = "28 Nov 2024 - 1 Dec 2024"
+                    ),
+                ),
                 onSeeAllClick = { /* Handle see all click */ })
         }
         item {
             EventListSection(
                 title = "Past Events",
-                events = listOf("Event 1", "Event 2", "Event 3"),
+                events = listOf(
+                    Events(
+                        image = R.drawable.ai_image,
+                        title = "Gemma 2 Ai Challenge",
+                        locationIcon = R.drawable.location,
+                        location = "Location",
+                        dateIcon = R.drawable.calender,
+                        date = "28 Nov 2024 - 1 Dec 2024"
+                    ),
+                    Events(
+                        image = R.drawable.ai_image,
+                        title = "Gemma 2 Ai Challenge",
+                        locationIcon = R.drawable.location,
+                        location = "Location",
+                        dateIcon = R.drawable.calender,
+                        date = "28 Nov 2024 - 1 Dec 2024"
+                    ),
+                    Events(
+                        image = R.drawable.ai_image,
+                        title = "Gemma 2 Ai Challenge",
+                        locationIcon = R.drawable.location,
+                        location = "Location",
+                        dateIcon = R.drawable.calender,
+                        date = "28 Nov 2024 - 1 Dec 2024"
+                    ),
+                    Events(
+                        image = R.drawable.ai_image,
+                        title = "Gemma 2 Ai Challenge",
+                        locationIcon = R.drawable.location,
+                        location = "Location",
+                        dateIcon = R.drawable.calender,
+                        date = "28 Nov 2024 - 1 Dec 2024"
+                    ),
+                ),
                 onSeeAllClick = { /* Handle see all click */ })
         }
     }
 }
-
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
