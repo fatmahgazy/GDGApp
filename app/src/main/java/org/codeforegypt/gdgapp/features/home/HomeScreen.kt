@@ -1,7 +1,9 @@
 package org.codeforegypt.gdgapp.features.home
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -110,6 +112,8 @@ fun GDGApp(modifier: Modifier = Modifier) {
             R.drawable.img_devfest,
             R.drawable.img_devfest
         ),
-        modifier = modifier
+        modifier = modifier.background(
+            color = MaterialTheme.colorScheme.background
+        )
     )
 }

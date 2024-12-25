@@ -6,8 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -16,13 +14,13 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Text
+import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -30,7 +28,6 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun FeaturedEventsSection(featuredEvents: List<Int>) {
-    // PagerState to track the current page
     val pagerState = rememberPagerState(
         initialPage = 0,
         initialPageOffsetFraction = 0f,
@@ -50,8 +47,10 @@ fun FeaturedEventsSection(featuredEvents: List<Int>) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp),
-                elevation = 4.dp,
-                backgroundColor = Color.White,
+                elevation = CardDefaults.elevatedCardElevation(4.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surface
+                ),
                 shape = RoundedCornerShape(8.dp)
             ) {
                 Column(
@@ -63,12 +62,12 @@ fun FeaturedEventsSection(featuredEvents: List<Int>) {
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(Color.LightGray),
+                            .background(MaterialTheme.colorScheme.surfaceVariant),
                         contentAlignment = Alignment.Center
                     ) {
                         Image(
                             painter = painterResource(id = featuredEvents[page]),
-                            contentDescription = "Featured Event Image",
+                            contentDescription = null,
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(150.dp),
@@ -80,19 +79,16 @@ fun FeaturedEventsSection(featuredEvents: List<Int>) {
                                 .fillMaxWidth()
                                 .padding(bottom = 4.dp)
                                 .align(Alignment.BottomCenter),
-                            textAlign = TextAlign.Center
-
+                            textAlign = TextAlign.Center,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurface
                         )
                     }
                 }
             }
         }
 
-
-        // Page content
-
-
-        // Custom pager indicator (below the pager)
+        // Custom pager indicator
         Row(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
@@ -100,7 +96,11 @@ fun FeaturedEventsSection(featuredEvents: List<Int>) {
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             repeat(featuredEvents.size) { index ->
-                val color = if (pagerState.currentPage == index) Color.Blue else Color.Gray
+                val color = if (pagerState.currentPage == index) {
+                    MaterialTheme.colorScheme.primary
+                } else {
+                    MaterialTheme.colorScheme.onSurfaceVariant
+                }
                 Box(
                     modifier = Modifier
                         .size(8.dp)

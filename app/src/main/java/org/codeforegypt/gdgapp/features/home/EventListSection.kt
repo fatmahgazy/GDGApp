@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Card
@@ -29,46 +28,40 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-
 
 @Composable
 fun EventListSection(
     title: String,
     events: List<Events>,
-    onSeeAllClick: () -> Unit
+    onSeeAllClick: () -> Unit,
 ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(bottom = 8.dp)
     ) {
-        // Section title with "See All" button
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.Companion.CenterVertically
         ) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-
-                )
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onBackground,
+            )
             TextButton(onClick = onSeeAllClick) {
                 Text(
                     text = "See All",
-                    color = MaterialTheme.colorScheme.primary
+                    color = MaterialTheme.colorScheme.primary,
+                    style = MaterialTheme.typography.bodyMedium
                 )
             }
         }
-
-        // LazyRow for event cards
 
         LazyRow(
             modifier = Modifier.fillMaxWidth(),
@@ -100,7 +93,7 @@ fun EventCard(
     date: String,
 ) {
     Card(
-        shape = RoundedCornerShape(8.dp),
+        shape = MaterialTheme.shapes.medium,
         elevation = CardDefaults.elevatedCardElevation(4.dp),
         modifier = Modifier
             .width(200.dp)
@@ -109,32 +102,32 @@ fun EventCard(
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.Start
+            horizontalAlignment = Alignment.Companion.Start
         ) {
             Box {
                 Image(
                     painterResource(id = image),
-                    contentDescription = "ai Image",
+                    contentDescription = null,
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(90.dp),
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.Companion.Crop
                 )
                 Box(
                     modifier = Modifier
                         .padding(6.dp)
                         .size(30.dp)
                         .clip(CircleShape)
-                        .background(Color.White)
-                        .align(Alignment.TopEnd)
+                        .background(MaterialTheme.colorScheme.surface)
+                        .align(Alignment.Companion.TopEnd)
                 ) {
                     Icon(
                         imageVector = Icons.Default.FavoriteBorder,
-                        contentDescription = "Favorite icon",
-                        tint = Color.Gray,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier
                             .size(20.dp)
-                            .align(Alignment.Center)
+                            .align(Alignment.Companion.Center)
                     )
                 }
             }
@@ -147,40 +140,38 @@ fun EventCard(
             ) {
                 Text(
                     text = title,
-                    style = TextStyle(
-                        fontWeight = FontWeight.Bold
-                    ),
+                    style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onBackground
                 )
                 Spacer(modifier = Modifier.height(3.dp))
                 Row(
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.Companion.CenterVertically
                 ) {
                     Image(
                         painterResource(id = locationIcon),
-                        contentDescription = "Location",
+                        contentDescription = null,
                         modifier = Modifier.size(15.dp)
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
                         text = location,
-                        style = MaterialTheme.typography.bodyMedium,
+                        style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onBackground
                     )
                 }
                 Spacer(modifier = Modifier.height(3.dp))
                 Row(
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.Companion.CenterVertically
                 ) {
                     Image(
                         painterResource(id = dateIcon),
-                        contentDescription = " Date Icon",
+                        contentDescription = null,
                         modifier = Modifier.size(15.dp)
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
                         text = date,
-                        style = MaterialTheme.typography.bodyMedium,
+                        style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onBackground
                     )
                 }
@@ -188,4 +179,3 @@ fun EventCard(
         }
     }
 }
-
