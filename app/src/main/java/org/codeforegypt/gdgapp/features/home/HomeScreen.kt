@@ -1,5 +1,6 @@
 package org.codeforegypt.gdgapp.features.home
 
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -25,80 +26,17 @@ fun HomeScreen(
         item {
             EventListSection(
                 title = "Upcoming Events",
-                events = listOf(
-                    Events(
-                        image = R.drawable.ai_image,
-                        title = "Gemma 2 Ai Challenge",
-                        locationIcon = R.drawable.location,
-                        location = "Location",
-                        dateIcon = R.drawable.calender,
-                        date = "28 Nov 2024 - 1 Dec 2024"
-                    ),
-                    Events(
-                        image = R.drawable.ai_image,
-                        title = "Gemma 2 Ai Challenge",
-                        locationIcon = R.drawable.location,
-                        location = "Location",
-                        dateIcon = R.drawable.calender,
-                        date = "28 Nov 2024 - 1 Dec 2024"
-                    ),
-                    Events(
-                        image = R.drawable.ai_image,
-                        title = "Gemma 2 Ai Challenge",
-                        locationIcon = R.drawable.location,
-                        location = "Location",
-                        dateIcon = R.drawable.calender,
-                        date = "28 Nov 2024 - 1 Dec 2024"
-                    ),
-                    Events(
-                        image = R.drawable.ai_image,
-                        title = "Gemma 2 Ai Challenge",
-                        locationIcon = R.drawable.location,
-                        location = "Location",
-                        dateIcon = R.drawable.calender,
-                        date = "28 Nov 2024 - 1 Dec 2024"
-                    ),
-                ),
-                onSeeAllClick = { /* Handle see all click */ })
+                events = Events.dummyData(),
+                onSeeAllClick = {}
+            )
         }
+
         item {
             EventListSection(
                 title = "Past Events",
-                events = listOf(
-                    Events(
-                        image = R.drawable.ai_image,
-                        title = "Gemma 2 Ai Challenge",
-                        locationIcon = R.drawable.location,
-                        location = "Location",
-                        dateIcon = R.drawable.calender,
-                        date = "28 Nov 2024 - 1 Dec 2024"
-                    ),
-                    Events(
-                        image = R.drawable.ai_image,
-                        title = "Gemma 2 Ai Challenge",
-                        locationIcon = R.drawable.location,
-                        location = "Location",
-                        dateIcon = R.drawable.calender,
-                        date = "28 Nov 2024 - 1 Dec 2024"
-                    ),
-                    Events(
-                        image = R.drawable.ai_image,
-                        title = "Gemma 2 Ai Challenge",
-                        locationIcon = R.drawable.location,
-                        location = "Location",
-                        dateIcon = R.drawable.calender,
-                        date = "28 Nov 2024 - 1 Dec 2024"
-                    ),
-                    Events(
-                        image = R.drawable.ai_image,
-                        title = "Gemma 2 Ai Challenge",
-                        locationIcon = R.drawable.location,
-                        location = "Location",
-                        dateIcon = R.drawable.calender,
-                        date = "28 Nov 2024 - 1 Dec 2024"
-                    ),
-                ),
-                onSeeAllClick = { /* Handle see all click */ })
+                events = Events.dummyData(),
+                onSeeAllClick = {}
+            )
         }
     }
 }

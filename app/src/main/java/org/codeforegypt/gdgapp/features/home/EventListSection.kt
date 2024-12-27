@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FavoriteBorder
@@ -67,16 +68,16 @@ fun EventListSection(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            items(events.size) { index ->
-                val event = events[index]
-                EventCard(
-                    image = event.image,
-                    title = event.title,
-                    locationIcon = event.locationIcon,
-                    location = event.location,
-                    dateIcon = event.dateIcon,
-                    date = event.date
-                )
+            items(events) { index ->
+               EventCard(
+                   image = index.image,
+                   locationIcon = index.locationIcon,
+                   dateIcon = index.dateIcon,
+                   title = index.title,
+                   location = index.location,
+                   date = index.date
+               )
+
 
             }
         }
